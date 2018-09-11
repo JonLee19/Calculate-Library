@@ -32,4 +32,7 @@ public class Calculate {
 	public static double discriminant(double a, double b, double c) {
 		return square(b) - 4*a*c;
 	}
+	public static double toImproperFrac(int wholenumber, int numerator, int denominator) {
+		return String()
+	}
 }
