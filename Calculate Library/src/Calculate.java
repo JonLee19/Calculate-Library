@@ -32,7 +32,32 @@ public class Calculate {
 	public static double discriminant(double a, double b, double c) {
 		return square(b) - 4*a*c;
 	}
-	public static double toImproperFrac(int wholenumber, int numerator, int denominator) {
-		return String()
+	public static String toImproperFrac(int wholenumber, int numerator, int denominator) {
+		int answer = wholenumber*denominator+numerator;
+		return (answer+"/"+denominator);
+	}
+	public static String toMixedNum(int numerator, int denominator) {
+		int wholenumber = numerator/denominator;
+		if (wholenumber==0) {
+			return ("That's not an improper fraction, you're answer is "+numerator+"/"+denominator);
+		}
+		else {
+			int remainder = numerator%denominator;
+			return (wholenumber+" "+remainder+"/"+denominator);
+		}
+	}
+	public static String foil(int a, int b, int c, int d, String n) {
+		int coefficient1 = a*c;
+		int coefficient2 = a*d+b*c;
+		int coefficient3 = b*d;
+		return (coefficient1+n+"^2 + "+coefficient2+n+" + "+coefficient3);
+	}
+	public static boolean isDivisibleBy(int a, int b) {
+		if (a%b == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }

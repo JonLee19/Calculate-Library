@@ -12,6 +12,9 @@ public class DoMath {
 		System.out.println(Calculate.toDegrees(14));
 		System.out.println(Calculate.toRadians(17));
 		System.out.println(Calculate.discriminant(3, 4, 5));
+		System.out.println(Calculate.toImproperFrac(3, 4, 5));
+		System.out.println(Calculate.toMixedNum(4, 5));
+		System.out.println(Calculate.isDivisibleBy(9, 5));
 	}
 
 }
