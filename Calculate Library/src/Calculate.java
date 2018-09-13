@@ -60,4 +60,59 @@ public class Calculate {
 			return false;
 		}
 	}
+	public static double absValue(double a) {
+		if (a <= 0) {
+			return -1*a;
+		}
+		else {
+			return a;
+		}
+	}
+	public static double max(double a, double b) {
+		if (a > b) {
+			return a;
+		}
+		else if (a < b) {
+			return b;
+		}
+		else {
+			return a;
+		}
+	}
+	public static double max(double a, double b, double c) {
+		if (a>b && a>c) {
+			return a;
+		}
+		else if (b>a && b>c) {
+			return b;
+		}
+		else if (c>a && c>b) {
+			return c;
+		}
+		else if (b==c) {
+			return b;
+		}
+		else {
+			return a;
+		}
+	}
+	public static int min(int a, int b) {
+		if (a<=b) {
+			return a;
+		}
+		else {
+			return b;
+		}
+	}
+	public static double round2 (double a) {
+		int threedecimalplaces = 1000*a;
+		int twodecimalplaces = 100*a;
+				if (threedecimalplaces%10>=5) {
+					return (twodecimalplaces/100.0)+1;
+				}
+				else {
+					return (twodecimalplaces/100.0);
+				}
+	}
+	
 }
