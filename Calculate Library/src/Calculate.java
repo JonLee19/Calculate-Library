@@ -105,14 +105,22 @@ public class Calculate {
 		}
 	}
 	public static double round2 (double a) {
-		int threedecimalplaces = 1000*a;
-		int twodecimalplaces = 100*a;
+		int threedecimalplaces = (int) (1000*a);
+		int twodecimalplaces = (int) (100*a);
 				if (threedecimalplaces%10>=5) {
-					return (twodecimalplaces/100.0)+1;
+					return ((twodecimalplaces+1)/100.0);
 				}
 				else {
 					return (twodecimalplaces/100.0);
 				}
 	}
-	
+	public static double sqrt(double n) {
+		double answer = 1;
+		double difference = absValue(n-square(answer));
+		while (difference > 0.005) {
+			answer = 0.5*(n/answer + answer);
+			difference = absValue(n-square(answer));
+		}
+		return round2(answer);
+	}
 }
