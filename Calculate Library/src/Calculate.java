@@ -115,15 +115,19 @@ public class Calculate {
 				}
 	}
 	public static double sqrt(double n) {
+		//finds approximation for square root of a number to two decimal places
 		if (n<0) {
 			n= -n;
 		}
+		//for negative numbers, make them positive
 		else {
 		}
 		double answer = 1;
 		double difference = absValue(n-square(answer));
+		//continue until the square of the answer is within 0.05 of the given number
 		while (difference > 0.005) {
 			answer = 0.5*(n/answer + answer);
+			//Newton's method of finding a closer approximation by guess and check
 			difference = absValue(n-square(answer));
 		}
 		return round2(answer);
