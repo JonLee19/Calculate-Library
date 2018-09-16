@@ -20,7 +20,7 @@ public class DoMath {
 		System.out.println(Calculate.max(90, 90, 45));
 		System.out.println(Calculate.min(90, 90));
 		System.out.println(Calculate.round2(90.0));
-		System.out.println(Calculate.sqrt(88.1));
+		System.out.println(Calculate.sqrt(-88.1));
 	}
 
 }

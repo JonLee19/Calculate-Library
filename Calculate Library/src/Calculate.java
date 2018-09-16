@@ -115,6 +115,11 @@ public class Calculate {
 				}
 	}
 	public static double sqrt(double n) {
+		if (n<0) {
+			n= -n;
+		}
+		else {
+		}
 		double answer = 1;
 		double difference = absValue(n-square(answer));
 		while (difference > 0.005) {
