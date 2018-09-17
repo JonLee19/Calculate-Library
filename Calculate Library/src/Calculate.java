@@ -39,7 +39,7 @@ public class Calculate {
 	public static String toMixedNum(int numerator, int denominator) {
 		int wholenumber = numerator/denominator;
 		if (wholenumber==0) {
-			return ("That's not an improper fraction, you're answer is "+numerator+"/"+denominator);
+			return ("That's not an improper fraction, your answer is "+numerator+"/"+denominator);
 		}
 		else {
 			int remainder = numerator%denominator;
@@ -105,14 +105,73 @@ public class Calculate {
 		}
 	}
 	public static double round2 (double a) {
-		int threedecimalplaces = 1000*a;
-		int twodecimalplaces = 100*a;
+		int threedecimalplaces = (int) (1000*a);
+		int twodecimalplaces = (int) (100*a);
 				if (threedecimalplaces%10>=5) {
-					return (twodecimalplaces/100.0)+1;
+					return ((twodecimalplaces+1)/100.0);
 				}
 				else {
 					return (twodecimalplaces/100.0);
 				}
 	}
-	
+	public static double exponent(double base, int power) {
+		double answer = 1;
+		for (int i = 0; i < power; i++) {
+			answer = answer * base;
+		}
+		return answer;
+	}
+	public static int factorial(int a) {
+		for (int i = a-1; i > 0; i--) {
+			a = a*i;
+		}
+		return a;
+	}
+	public static boolean isPrime(int a) {
+		boolean answer = false;
+		for(int i = a-1; i > 1; i--) {
+			if (isDivisibleBy(a,i)==true) {
+				answer = false;
+				i = 1;
+			}
+			else {	
+				answer = true;
+			}
+		}
+		return answer;	
+	}
+	public static int gcf(int a, int b) {
+		int answer = 1;
+		for (int i = a; i > 1; i--) {
+			if (isDivisibleBy(a,i)==true) {
+				if (isDivisibleBy(b,i)==true) {
+					answer = i;
+					i = 1;
+				}
+				else {
+				}
+			}
+			else {
+			}
+		}
+		return answer;
+	}
+	public static double sqrt(double n) {
+		//finds approximation for square root of a number to two decimal places
+		if (n<0) {
+			n= -n;
+		}
+		//for negative numbers, make them positive
+		else {
+		}
+		double answer = 1;
+		double difference = absValue(n-square(answer));
+		//continue until the square of the answer is within 0.05 of the given number
+		while (difference > 0.005) {
+			answer = 0.5*(n/answer + answer);
+			//Newton's method of finding a closer approximation by guess and check
+			difference = absValue(n-square(answer));
+		}
+		return round2(answer);
+	}
 }
