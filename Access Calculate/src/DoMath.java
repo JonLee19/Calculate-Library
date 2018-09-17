@@ -19,15 +19,11 @@ public class DoMath {
 		System.out.println(Calculate.max(5, 90));
 		System.out.println(Calculate.max(90, 90, 45));
 		System.out.println(Calculate.min(90, 90));
-<<<<<<< HEAD
 		System.out.println(Calculate.round2(90.03725));
 		System.out.println(Calculate.exponent(.4, 5));
 		System.out.println(Calculate.factorial(5));
 		System.out.println(Calculate.gcf(64, 2));
-=======
-		System.out.println(Calculate.round2(90.0));
 		System.out.println(Calculate.sqrt(-88.1));
->>>>>>> branch 'master' of https://github.com/JonLee19/Calculate-Library.git
 	}
 
 }
