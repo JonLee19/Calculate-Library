@@ -157,8 +157,6 @@ public class Calculate {
 		}
 		return answer;
 	}
-=======
->>>>>>> branch 'master' of https://github.com/JonLee19/Calculate-Library.git
 	public static double sqrt(double n) {
 		//finds approximation for square root of a number to two decimal places
 		if (n<0) {
