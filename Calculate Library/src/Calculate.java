@@ -114,6 +114,7 @@ public class Calculate {
 					return (twodecimalplaces/100.0);
 				}
 	}
+<<<<<<< HEAD
 	public static double exponent(double base, int power) {
 		double answer = 1;
 		for (int i = 0; i < power; i++) {
@@ -156,6 +157,8 @@ public class Calculate {
 		}
 		return answer;
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/JonLee19/Calculate-Library.git
 	public static double sqrt(double n) {
 		//finds approximation for square root of a number to two decimal places
 		if (n<0) {
