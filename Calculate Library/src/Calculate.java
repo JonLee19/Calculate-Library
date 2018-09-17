@@ -114,7 +114,6 @@ public class Calculate {
 					return (twodecimalplaces/100.0);
 				}
 	}
-<<<<<<< HEAD
 	public static double exponent(double base, int power) {
 		double answer = 1;
 		for (int i = 0; i < power; i++) {
