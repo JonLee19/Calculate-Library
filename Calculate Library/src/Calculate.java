@@ -71,11 +71,19 @@ public class Calculate {
 	public static boolean isDivisibleBy(int a, int b) {
 		//if a divided by b has no remainder, it is divisible, so returns true
 		//if not, returns false
-		if (a%b == 0) {
-			return true;
+		if (a*b < 0) {
+			//only true if only one of a or b is negative, not both or neither
+			System.out.println("That's not a positive integer, please give the right input.");
+			return false;
+			//return error message if incorrect input is given
 		}
 		else {
-			return false;
+			if (a%b == 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 	}
 	public static double absValue(double a) {
@@ -146,26 +154,40 @@ public class Calculate {
 				}
 	}
 	public static double exponent(double base, int power) {
-		double answer = 1;
-		for (int i = 0; i < power; i++) {
-			//count up from 0 to the power value inputed
-			answer = answer * base;
-			/* for each count, answer multiplies by base
-			 */
+		if (power <= 0) {
+			System.out.println("That's not a positive integer, please give the right input.");
+			return 0;
+			//return error message if incorrect input is given
 		}
-		return answer;
+		else {
+			double answer = 1;
+			for (int i = 0; i < power; i++) {
+				//count up from 0 to the power value inputed
+				answer = answer * base;
+				/* for each count, answer multiplies by base
+				 */
+			}
+			return answer;
+		}
 	}
 	public static int factorial(int a) {
-		for (int i = a-1; i > 0; i--) {
+		if (a <= 0) {
+			System.out.println("That's not a positive integer, please give the right input.");
+			return 0;
+			//return error message if incorrect input is given
+		}
+		else {
+			for (int i = a-1; i > 0; i--) {
 			//count down from given value to 1
-			a = a*i;
+				a = a*i;
 			/*for each value, multiply it by the given, 
 			 * and assign that to the given, so at the end
 			 * the given variable equals itself times all the
 			 * integers below it
 			 */
-		}
+			}
 		return a;
+		}
 	}
 	public static boolean isPrime(int a) {
 		boolean answer = false;
@@ -213,7 +235,8 @@ public class Calculate {
 	public static double sqrt(double n) {
 		//finds approximation for square root of a number to two decimal places
 		if (n<0) {
-			n= -n;
+			System.out.println("That's not a positive number, please give a correct input.");
+			return 0;
 		}
 		//for negative numbers, make them positive
 		else {
