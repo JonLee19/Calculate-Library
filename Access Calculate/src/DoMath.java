@@ -14,15 +14,15 @@ public class DoMath {
 		System.out.println(Calculate.discriminant(3, 4, 5));
 		System.out.println(Calculate.toImproperFrac(3, 4, 5));
 		System.out.println(Calculate.toMixedNum(4, 5));
-		System.out.println(Calculate.isDivisibleBy(9, 5));
+		System.out.println(Calculate.isDivisibleBy(9, 3));
 		System.out.println(Calculate.absValue(-5));
 		System.out.println(Calculate.max(5, 90));
 		System.out.println(Calculate.max(90, 90, 45));
 		System.out.println(Calculate.min(90, 90));
 		System.out.println(Calculate.round2(90.03725));
-		System.out.println(Calculate.exponent(.4, 5));
-		System.out.println(Calculate.factorial(5));
-		System.out.println(Calculate.gcf(64, 2));
+		System.out.println(Calculate.exponent(.4, -5));
+		System.out.println(Calculate.factorial(-6));
+		System.out.println(Calculate.gcf(-64, 16));
 		System.out.println(Calculate.sqrt(-88.1));
 	}
 

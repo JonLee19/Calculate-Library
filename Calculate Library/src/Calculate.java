@@ -71,11 +71,18 @@ public class Calculate {
 	public static boolean isDivisibleBy(int dividend, int divisor) {
 		//if dividend divided by divisor has no remainder, it is divisible 
 		//so returns true, if not, returns false
-		if (dividend%divisor == 0) {
-			return true;
+		if (divisor == 0) {
+			System.out.println("The given divisor is 0, please give the right input.");
+			return false;
+			//return error message if incorrect input is given
 		}
 		else {
-			return false;
+			if (dividend%divisor == 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 	}
 	public static double absValue(double number) {
@@ -146,19 +153,33 @@ public class Calculate {
 				}
 	}
 	public static double exponent(double base, int power) {
-		double answer = 1;
-		for (int i = 0; i < power; i++) {
-			//count up from 0 to the power value inputed
-			answer = answer * base;
-			/* for each count, answer multiplies by base
-			 */
+		if (power <= 0) {
+			System.out.println("That's not a positive integer, please give the right input.");
+			return 0;
+			//return error message if incorrect input is given
 		}
-		return answer;
+		else {
+			double answer = 1;
+			for (int i = 0; i < power; i++) {
+				//count up from 0 to the power value inputed
+				answer = answer * base;
+				/* for each count, answer multiplies by base
+				 */
+			}
+			return answer;
+		}
 	}
 	public static int factorial(int integer) {
-		for (int i = integer-1; i > 0; i--) {
+		if (integer <= 0) {
+			System.out.println("That's not a positive integer, please give the right input.");
+			return 0;
+			//return error message if incorrect input is given
+		}
+		else {
+			for (int i = integer-1; i > 0; i--) {
 			//count down from given value to 1
 			integer = integer*i;
+				integer = integer*i;
 			/*for each value, multiply it by the given, 
 			 * and assign that to the given, so at the end
 			 * the given variable equals itself times all the
@@ -166,6 +187,7 @@ public class Calculate {
 			 */
 		}
 		return integer;
+			}
 	}
 	public static boolean isPrime(int integer) {
 		boolean answer = false;
@@ -213,10 +235,10 @@ public class Calculate {
 	public static double sqrt(double number) {
 		//finds approximation for square root of a number to two decimal places
 		if (number<0) {
-			System.out.println("This is not a positive value, please give a correct input.");
-			number= -number;
+			System.out.println("That's not a positive number, please give a correct input.");
+			return 0;
 		}
-		//for negative numbers, return error statement and make them positive
+		//for negative numbers, return error statement
 		else {
 		}
 		double answer = 1;
