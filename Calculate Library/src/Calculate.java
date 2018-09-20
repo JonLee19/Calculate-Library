@@ -28,13 +28,13 @@ public class Calculate {
 		//averages three numbers by adding them and dividing by three
 		return (num1 + num2 + num3)/3;
 	}
-	public static double toDegrees(double num1) {
+	public static double toDegrees(double angle_in_radians) {
 		//returns angle measure in radians to units of degrees
-		return (num1)*180/3.14159;
+		return (angle_in_radians)*180/3.14159;
 	}
-	public static double toRadians(double num1) {
+	public static double toRadians(double angle_in_degrees) {
 		//converts degree value to units of radians
-		return num1*3.14159/180;
+		return angle_in_degrees*3.14159/180;
 	}
 	public static double discriminant(double a, double b, double c) {
 		//calculates the discriminant, which is used to determine how many
@@ -60,77 +60,77 @@ public class Calculate {
 			return (wholenumber+" "+remainder+"/"+denominator);
 		}
 	}
-	public static String foil(int a, int b, int c, int d, String n) {
+	public static String foil(int a, int b, int c, int d, String variable) {
 		//does foil operations, inner times inner and outer times outer, etc
 		//returns the coefficients in standard form of quadratic equations
 		int coefficient1 = a*c;
 		int coefficient2 = a*d+b*c;
 		int coefficient3 = b*d;
-		return (coefficient1+n+"^2 + "+coefficient2+n+" + "+coefficient3);
+		return (coefficient1+variable+"^2 + "+coefficient2+variable+" + "+coefficient3);
 	}
-	public static boolean isDivisibleBy(int a, int b) {
-		//if a divided by b has no remainder, it is divisible, so returns true
-		//if not, returns false
-		if (a%b == 0) {
+	public static boolean isDivisibleBy(int dividend, int divisor) {
+		//if dividend divided by divisor has no remainder, it is divisible 
+		//so returns true, if not, returns false
+		if (dividend%divisor == 0) {
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
-	public static double absValue(double a) {
-		//if a is negative, returns the opposite; 
-		//if a is positive, returns a
-		//either result is the positive value of a
-		if (a <= 0) {
-			return -1*a;
+	public static double absValue(double number) {
+		//if number is negative, returns the opposite; 
+		//if number is positive, returns number
+		//either result is the positive value of number
+		if (number <= 0) {
+			return -1*number;
 		}
 		else {
-			return a;
+			return number;
 		}
 	}
-	public static double max(double a, double b) {
-		//returns a if a is greater than b, b if b is greater
-		if (a > b) {
-			return a;
+	public static double max(double num1, double num2) {
+		//returns num1 if num1 is greater than num2, or num2 if num2 is greater
+		if (num1 > num2) {
+			return num1;
 		}
-		else if (a < b) {
-			return b;
+		else if (num1 < num2) {
+			return num2;
 		}
 		else {
-			return a;
+			return num1;
 		}
 	}
-	public static double max(double a, double b, double c) {
-		//returns a if a is greater than b and c, same for b or c
-		if (a>b && a>c) {
-			return a;
+	public static double max(double num1, double num2, double num3) {
+		//returns num1 if num1 is greater than num2 and num3, same for num2 or num3
+		if (num1>num2 && num1>num3) {
+			return num1;
 		}
-		else if (b>a && b>c) {
-			return b;
+		else if (num2>num1 && num2>num3) {
+			return num2;
 		}
-		else if (c>a && c>b) {
-			return c;
+		else if (num3>num1 && num3>num2) {
+			return num3;
 		}
-		else if (b==c) {
-			return b;
+		else if (num2==num3) {
+			return num2;
 		}
 		else {
-			return a;
+			return num1;
 		}
 	}
-	public static int min(int a, int b) {
-		//returns a if a is less or equal, b if b is less
-		if (a<=b) {
-			return a;
+	public static int min(int num1, int num2) {
+		//returns num1 if num1 is less or equal to num2, or num2 if num2 is less
+		if (num1<=num2) {
+			return num1;
 		}
 		else {
-			return b;
+			return num2;
 		}
 	}
-	public static double round2 (double a) {
-		int threedecimalplaces = (int) (1000*a);
-		int twodecimalplaces = (int) (100*a);
+	public static double round2 (double decimal) {
+		int threedecimalplaces = (int) (1000*decimal);
+		int twodecimalplaces = (int) (100*decimal);
 		/*multiply the given by a thousand, then convert it to an int
 		 *  so that the digits after the decimal point are truncated
 		 * then divide by ten to see if the last digit is 
@@ -155,26 +155,26 @@ public class Calculate {
 		}
 		return answer;
 	}
-	public static int factorial(int a) {
-		for (int i = a-1; i > 0; i--) {
+	public static int factorial(int integer) {
+		for (int i = integer-1; i > 0; i--) {
 			//count down from given value to 1
-			a = a*i;
+			integer = integer*i;
 			/*for each value, multiply it by the given, 
 			 * and assign that to the given, so at the end
 			 * the given variable equals itself times all the
 			 * integers below it
 			 */
 		}
-		return a;
+		return integer;
 	}
-	public static boolean isPrime(int a) {
+	public static boolean isPrime(int integer) {
 		boolean answer = false;
-		for(int i = a-1; i > 1; i--) {
+		for(int i = integer-1; i > 1; i--) {
 			//count down from given value to 2
-			if (isDivisibleBy(a,i)==true) {
+			if (isDivisibleBy(integer,i)==true) {
 				answer = false;
 				i = 1;
-				/*if given value is divisble by any of those values
+				/*if given value is divisible by any of those values
 				 * answer becomes false and the counter variable i becomes 1
 				 * ending the loop because the test condition is no longer met 
 				 */
@@ -185,16 +185,16 @@ public class Calculate {
 		}
 		return answer;	
 	}
-	public static int gcf(int a, int b) {
+	public static int gcf(int num1, int num2) {
 		//finds the largest factor shared by both given values
 		int answer = 1;
-		int largerofinputs = (int) (max(a, b));
+		int largerofinputs = (int) (max(num1, num2));
 		for (int i = largerofinputs; i > 1; i--) {
 			/*starting from the larger input, count down while testing factors
-			 * to see if both a and b are divisble by them
+			 * to see if both num1 and num2 are divisible by them
 			 */
-			if (isDivisibleBy(a,i)==true) {
-				if (isDivisibleBy(b,i)==true) {
+			if (isDivisibleBy(num1,i)==true) {
+				if (isDivisibleBy(num2,i)==true) {
 					answer = i;
 					i = 1;
 					/*once a factor is found, assign the value to answer, then
@@ -210,21 +210,22 @@ public class Calculate {
 		}
 		return answer;
 	}
-	public static double sqrt(double n) {
+	public static double sqrt(double number) {
 		//finds approximation for square root of a number to two decimal places
-		if (n<0) {
-			n= -n;
+		if (number<0) {
+			System.out.println("This is not a positive value, please give a correct input.");
+			number= -number;
 		}
-		//for negative numbers, make them positive
+		//for negative numbers, return error statement and make them positive
 		else {
 		}
 		double answer = 1;
-		double difference = absValue(n-square(answer));
+		double difference = absValue(number-square(answer));
 		//continue until the square of the answer is within 0.05 of the given number
 		while (difference > 0.005) {
-			answer = 0.5*(n/answer + answer);
+			answer = 0.5*(number/answer + answer);
 			//Newton's method of finding a closer approximation by guess and check
-			difference = absValue(n-square(answer));
+			difference = absValue(number-square(answer));
 		}
 		return round2(answer);
 	}
