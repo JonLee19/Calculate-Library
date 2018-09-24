@@ -57,7 +57,7 @@ public class Calculate {
 		else {
 			int remainder = numerator%denominator;
 			//remainder uses mod (%) which gives only the remainder when dividing
-			return (wholenumber+" "+remainder+"/"+denominator);
+			return (wholenumber+"_"+remainder+"/"+denominator);
 		}
 	}
 	public static String foil(int a, int b, int c, int d, String variable) {
@@ -250,5 +250,17 @@ public class Calculate {
 			difference = absValue(number-square(answer));
 		}
 		return round2(answer);
+	}
+	public static String quadForm(int a, int b, int c) {
+		if (discriminant(a,b,c) > 0) {
+			String answer = ((-b+sqrt(discriminant(a,b,c)))/(2.0*a));
+			return (answer); 
+		}
+		else if (discriminant(a,b,c) == 0) {
+			return (String) ((-b)/(2.0*a));
+		}
+		else {
+			return ("There are no real roots to ths equation.");
+		}
 	}
 }
