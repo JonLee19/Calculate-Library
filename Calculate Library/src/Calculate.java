@@ -43,11 +43,17 @@ public class Calculate {
 	}
 	public static String toImproperFrac(int wholenumber, int numerator, int denominator) {
 		//converts mixed number to improper fraction using math rules
+		if (denominator == 0) {
+			throw new IllegalArgumentException("The denominator is 0, please give the right input.");
+		}
 		int answer = wholenumber*denominator+numerator;
 		return (answer+"/"+denominator);
 	}
 	public static String toMixedNum(int numerator, int denominator) {
 		//converts an improper fraction to mixed number using math rules
+		if (denominator == 0) {
+			throw new IllegalArgumentException("The denominator is 0, please give the right input.");
+		}
 		int wholenumber = numerator/denominator;
 		//whole number is the result of division where the remainder is ignored
 		if (wholenumber==0) {
@@ -72,8 +78,7 @@ public class Calculate {
 		//if dividend divided by divisor has no remainder, it is divisible 
 		//so returns true, if not, returns false
 		if (divisor == 0) {
-			System.out.println("The given divisor is 0, please give the right input.");
-			return false;
+			throw new IllegalArgumentException("The given divisor is 0, please give the right input.");
 			//return error message if incorrect input is given
 		}
 		else {
@@ -135,6 +140,15 @@ public class Calculate {
 			return num2;
 		}
 	}
+	public static double min(double num1, double num2) {
+		//returns num1 if num1 is less or equal to num2, or num2 if num2 is less
+		if (num1<=num2) {
+			return num1;
+		}
+		else {
+			return num2;
+		}
+	}
 	public static double round2 (double decimal) {
 		int threedecimalplaces = (int) (1000*decimal);
 		int twodecimalplaces = (int) (100*decimal);
@@ -145,18 +159,29 @@ public class Calculate {
 		 * last, divide by a hundred using doubles division to return 
 		 * the decimal place to its original spot 
 		 */
+		if (decimal >= 0) {
 				if (threedecimalplaces%10>=5) {
 					return ((twodecimalplaces+1)/100.0);
 				}
 				else {
 					return (twodecimalplaces/100.0);
 				}
+		}
+		else {
+			if (threedecimalplaces%10>=5) {
+				return ((twodecimalplaces-1)/100.0);
+			}
+			else {
+				return (twodecimalplaces/100.0);
+			}
+		}
+		//if decimal is negative, the decimal should round up the digit 
+		//in question if the next digit is greater than five, resulting in a more negative number
 	}
 	public static double exponent(double base, int power) {
 		if (power <= 0) {
-			System.out.println("That's not a positive integer, please give the right input.");
-			return 0;
-			//return error message if incorrect input is given
+			throw new IllegalArgumentException("That's not a positive integer, please give the right input.");
+			//return error message and throws exception if incorrect input is given
 		}
 		else {
 			double answer = 1;
@@ -171,8 +196,7 @@ public class Calculate {
 	}
 	public static int factorial(int integer) {
 		if (integer <= 0) {
-			System.out.println("That's not a positive integer, please give the right input.");
-			return 0;
+			throw new IllegalArgumentException("That's not a positive integer, please give the right input.");
 			//return error message if incorrect input is given
 		}
 		else {
@@ -191,6 +215,9 @@ public class Calculate {
 	}
 	public static boolean isPrime(int integer) {
 		boolean answer = false;
+		if (integer <= 1) {
+			throw new IllegalArgumentException("That's not a valid input, please give a positive integer greater than 1");
+		}
 		for(int i = integer-1; i > 1; i--) {
 			//count down from given value to 2
 			if (isDivisibleBy(integer,i)==true) {
@@ -210,6 +237,20 @@ public class Calculate {
 	public static int gcf(int num1, int num2) {
 		//finds the largest factor shared by both given values
 		int answer = 1;
+		boolean num1isnegative = false;
+		boolean num2isnegative = false;
+		if (num1 < 0) {
+			num1 = -num1;
+			num1isnegative = true;
+			//if num1isnegative is true, num1 was originally negative
+		}
+		if (num2 < 0){
+			num2 = -num2;
+			num2isnegative = true;
+			//if num2isnegative is true, num2 was originally negative
+		}
+		else {
+		}
 		int largerofinputs = (int) (max(num1, num2));
 		for (int i = largerofinputs; i > 1; i--) {
 			/*starting from the larger input, count down while testing factors
@@ -230,13 +271,16 @@ public class Calculate {
 			else {
 			}
 		}
+		if (num1isnegative == true && num2isnegative == true) {
+			answer = -answer;
+		}
 		return answer;
 	}
 	public static double sqrt(double number) {
 		//finds approximation for square root of a number to two decimal places
 		if (number<0) {
-			System.out.println("That's not a positive number, please give a correct input.");
-			return 0;
+			throw new IllegalArgumentException("That's not a positive number, please give a correct input.");
+			//end program by throwing exception if number is not positive
 		}
 		//for negative numbers, return error statement
 		else {
@@ -253,14 +297,16 @@ public class Calculate {
 	}
 	public static String quadForm(int a, int b, int c) {
 		if (discriminant(a,b,c) > 0) {
-			String answer = ((-b+sqrt(discriminant(a,b,c)))/(2.0*a));
-			return (answer); 
+			double answer1 = round2(((-b+sqrt(discriminant(a,b,c)))/(2.0*a)));
+			double answer2 = round2(((-b-sqrt(discriminant(a,b,c)))/(2.0*a)));
+			return (min(answer1, answer2)+" and "+max(answer1, answer2)); 
 		}
 		else if (discriminant(a,b,c) == 0) {
-			return (String) ((-b)/(2.0*a));
+			return (""+round2(((-b)/(2.0*a))));
+			///how to change to string, is use an empty string to concatenate
 		}
 		else {
-			return ("There are no real roots to ths equation.");
+			return ("no real roots");
 		}
 	}
 }
