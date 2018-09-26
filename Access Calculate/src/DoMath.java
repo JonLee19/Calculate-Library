@@ -24,7 +24,7 @@ public class DoMath {
 		System.out.println(Calculate.factorial(6));
 		System.out.println(Calculate.gcf(-64, -16));
 		System.out.println(Calculate.sqrt(88.1));
-		System.out.println(Calculate.quadForm(-2, 6, 7));
+		System.out.println(Calculate.quadForm(-2, 6, 123));
 	}
 
 }

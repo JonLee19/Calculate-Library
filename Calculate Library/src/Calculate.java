@@ -28,18 +28,18 @@ public class Calculate {
 		//averages three numbers by adding them and dividing by three
 		return (num1 + num2 + num3)/3;
 	}
-	public static double toDegrees(double angle_in_radians) {
+	public static double toDegrees(double angle_radians) {
 		//returns angle measure in radians to units of degrees
-		return (angle_in_radians)*180/3.14159;
+		return (angle_radians)*180/3.14159;
 	}
-	public static double toRadians(double angle_in_degrees) {
+	public static double toRadians(double angle_degrees) {
 		//converts degree value to units of radians
-		return angle_in_degrees*3.14159/180;
+		return angle_degrees*3.14159/180;
 	}
 	public static double discriminant(double a, double b, double c) {
 		//calculates the discriminant, which is used to determine how many
 		//real roots a quadratic equation has
-		return square(b) - 4*a*c;
+		return (square(b) - 4*a*c);
 	}
 	public static String toImproperFrac(int wholenumber, int numerator, int denominator) {
 		//converts mixed number to improper fraction using math rules
