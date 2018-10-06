@@ -140,7 +140,7 @@ public class Quadratic {
 		double vertex_y = a*square(vertex_x)+b*vertex_x+c;
 		String vertex = ("The coordinates of the vertex are: ("+round2(vertex_x)+", "+round2(vertex_y)+"). ");
 		//use math formula -b/2a to find the vertex coordinates
-		String axis_of_symmetry = ("Its axis of symmetry is x = "+vertex_x+". ");
+		String axis_of_symmetry = ("Its axis of symmetry is x = "+round2(vertex_x)+". ");
 		String x_intercepts = ("Its x-intercept(s) are: "+quadForm(a, b, c)+". ");
 		//quadForm already gives the roots/intercepts of the quadratic equation in string form
 		String y_intercepts = ("Its y-intercept is: (0, "+c+") .");
