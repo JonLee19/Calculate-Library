@@ -309,4 +309,18 @@ public class Calculate {
 			return ("no real roots");
 		}
 	}
+	public static String quadForm(double a, double b, double c) {
+		if (discriminant(a,b,c) > 0) {
+			double answer1 = round2(((-b+sqrt(discriminant(a,b,c)))/(2.0*a)));
+			double answer2 = round2(((-b-sqrt(discriminant(a,b,c)))/(2.0*a)));
+			return (min(answer1, answer2)+" and "+max(answer1, answer2)); 
+		}
+		else if (discriminant(a,b,c) == 0) {
+			return (""+round2(((-b)/(2.0*a))));
+			///how to change to string, is use an empty string to concatenate
+		}
+		else {
+			return ("no real roots");
+		}
+	}
 }
