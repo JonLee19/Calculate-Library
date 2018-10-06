@@ -1,7 +1,23 @@
-
-
+/*This class contains methods used to describe a parabola
+@author Jon Lee
+@version October 4, 2018 
+ */
 public class Quadratic {
 	public static String quadForm(int a, int b, int c) {
+		if (discriminant(a,b,c) > 0) {
+			double answer1 = round2(((-b+sqrt(discriminant(a,b,c)))/(2.0*a)));
+			double answer2 = round2(((-b-sqrt(discriminant(a,b,c)))/(2.0*a)));
+			return (min(answer1, answer2)+" and "+max(answer1, answer2)); 
+		}
+		else if (discriminant(a,b,c) == 0) {
+			return (""+round2(((-b)/(2.0*a))));
+			///how to change to string, is use an empty string to concatenate
+		}
+		else {
+			return ("no real roots");
+		}
+	}
+	public static String quadForm(double a, double b, double c) {
 		if (discriminant(a,b,c) > 0) {
 			double answer1 = round2(((-b+sqrt(discriminant(a,b,c)))/(2.0*a)));
 			double answer2 = round2(((-b-sqrt(discriminant(a,b,c)))/(2.0*a)));
@@ -106,14 +122,28 @@ public class Quadratic {
 	}
 	public static String quadrDescriber (double a, double b, double c) {
 		if (a==0) throw new IllegalArgumentException("a cannot be 0, or the equation is not quadratic.");
+		//cannot be a parabola if a is 0
+		if (b==0) {
+			b=-b;
+		}
+		//for aesthetic purposes, because 0.0 looks better than -0.0
 		String direction = new String();
 		String vertex = new String();
-		vertex = ((-b)/(2.0*a)+"");
+		double vertex_x = (-b)/(2.0*a);
+		double vertex_y = a*square(vertex_x)+b*vertex_x+c;
+		vertex = ("The coordinates of the vertex are: ("+round2(vertex_x)+", "+round2(vertex_y)+"). ");
+		//use math formula -b/2a to find the vertex coordinates
 		if (a>0) {
-			direction = ("The parabola opens upward.");
+			direction = ("The parabola opens upward. ");
 		}
-		
-		return (direction);
+		else {
+			direction = ("The parabola opens downward. ");
+		}
+		//if a is positive, the graph opens up, and if its negative the graph faces downward
+		String roots = ("Its root(s) are: "+quadForm(a, b, c)+". ");
+		//quadForm already gives the roots of the quadratic equation in string form
+		return (direction+vertex+roots);
+		//return all 3 components together as a string
 	}
 }
 
