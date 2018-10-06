@@ -17,14 +17,27 @@ public class QuadraticClient {
 			double c = console.nextDouble();
 			//console.close();
 			System.out.println(Quadratic.quadrDescriber(a, b, c));
-			System.out.print("Would you like to use this program again? Type \"no\" to quit. ");
-			//Scanner console2 = new Scanner(System.in);
-			if (console.nextLine()=="no") {
+			System.out.print("Would you like to use this program again? Type \"quit\" to quit. ");
+			Scanner console2 = new Scanner(System.in);
+			String answer = console2.nextLine();
+			System.out.println("You typed "+answer);
+			if (answer!="quit") {
+				done=true;
+				System.out.println(done);
+				//never thinks test is true
+			}
+			else {
 				done=true;
 			}
+			System.out.println(done);
+			//else {
+			//	quit = true;
+			//}
+			//console.close();
 			//console2.close();
 			
 		}
+		System.out.println("Thanks for using this program!");
 	}
 
 }

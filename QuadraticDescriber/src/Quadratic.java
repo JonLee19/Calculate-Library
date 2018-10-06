@@ -123,16 +123,12 @@ public class Quadratic {
 	public static String quadrDescriber (double a, double b, double c) {
 		if (a==0) throw new IllegalArgumentException("a cannot be 0, or the equation is not quadratic.");
 		//cannot be a parabola if a is 0
+		String equation = "Your equation is "+a+"x^2 + "+b+"x + "+c;
 		if (b==0) {
 			b=-b;
 		}
-		//for aesthetic purposes, because 0.0 looks better than -0.0
+		//for aesthetic purposes, because 0.0 looks better than -0.0 on vertex coordinates
 		String direction = new String();
-		String vertex = new String();
-		double vertex_x = (-b)/(2.0*a);
-		double vertex_y = a*square(vertex_x)+b*vertex_x+c;
-		vertex = ("The coordinates of the vertex are: ("+round2(vertex_x)+", "+round2(vertex_y)+"). ");
-		//use math formula -b/2a to find the vertex coordinates
 		if (a>0) {
 			direction = ("The parabola opens upward. ");
 		}
@@ -140,10 +136,17 @@ public class Quadratic {
 			direction = ("The parabola opens downward. ");
 		}
 		//if a is positive, the graph opens up, and if its negative the graph faces downward
-		String roots = ("Its root(s) are: "+quadForm(a, b, c)+". ");
-		//quadForm already gives the roots of the quadratic equation in string form
-		return (direction+vertex+roots);
-		//return all 3 components together as a string
+		double vertex_x = (-b)/(2.0*a);
+		double vertex_y = a*square(vertex_x)+b*vertex_x+c;
+		String vertex = ("The coordinates of the vertex are: ("+round2(vertex_x)+", "+round2(vertex_y)+"). ");
+		//use math formula -b/2a to find the vertex coordinates
+		String axis_of_symmetry = ("Its axis of symmetry is x = "+vertex_x+". ");
+		String x_intercepts = ("Its x-intercept(s) are: "+quadForm(a, b, c)+". ");
+		//quadForm already gives the roots/intercepts of the quadratic equation in string form
+		String y_intercepts = ("Its y-intercept is: (0, "+c+") .");
+		//y-intercept is when x = 0, which gives y = c
+		return (equation+"\n"+direction+"\n"+vertex+"\n"+axis_of_symmetry+"\n"+x_intercepts+y_intercepts);
+		//return all 5 components together as a string
 	}
 }
 
