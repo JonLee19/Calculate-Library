@@ -21,13 +21,13 @@ public class QuadraticClient {
 			Scanner console2 = new Scanner(System.in);
 			String answer = console2.nextLine();
 			System.out.println("You typed "+answer);
-			if (answer!="quit") {
+			if (answer.contentEquals("quit")) {
 				done=true;
 				System.out.println(done);
 				//never thinks test is true
 			}
 			else {
-				done=true;
+				done=false;
 			}
 			System.out.println(done);
 			//else {
