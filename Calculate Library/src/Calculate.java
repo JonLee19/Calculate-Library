@@ -151,7 +151,6 @@ public class Calculate {
 	}
 	public static double round2 (double decimal) {
 		int threedecimalplaces = (int) (1000*decimal);
-		int twodecimalplaces = (int) (100*decimal);
 		/*multiply the given by a thousand, then convert it to an int
 		 *  so that the digits after the decimal point are truncated
 		 * then divide by ten to see if the last digit is 
@@ -161,19 +160,19 @@ public class Calculate {
 		 */
 		if (decimal >= 0) {
 				if (threedecimalplaces%10>=5) {
-					return ((twodecimalplaces+1)/100.0);
+					return (((threedecimalplaces/10)+1)/100.0);
 				}
 				else {
-					return (twodecimalplaces/100.0);
+					return (threedecimalplaces/1000.0);
 				}
 		}
 		else {
 			if (threedecimalplaces%10<=-5) {
 				//the % of a negative number is negative
-				return ((twodecimalplaces-1)/100.0);
+				return (((threedecimalplaces/10)-1)/100.0);
 			}
 			else {
-				return (twodecimalplaces/100.0);
+				return (threedecimalplaces/1000.0);
 			}
 		}
 		//if decimal is negative, the decimal should round up the digit 
