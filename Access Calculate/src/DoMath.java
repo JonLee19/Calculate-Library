@@ -19,7 +19,7 @@ public class DoMath {
 		System.out.println(Calculate.max(5, 90));
 		System.out.println(Calculate.max(90, 90, 45));
 		System.out.println(Calculate.min(90, 90));
-		System.out.println(Calculate.round2(90.3782));
+		System.out.println(Calculate.round2(-90.3782));
 		System.out.println(Calculate.exponent(.4, 5));
 		System.out.println(Calculate.factorial(6));
 		System.out.println(Calculate.gcf(-64, -16));

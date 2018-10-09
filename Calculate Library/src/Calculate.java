@@ -168,7 +168,8 @@ public class Calculate {
 				}
 		}
 		else {
-			if (threedecimalplaces%10>=5) {
+			if (threedecimalplaces%10<=-5) {
+				//the % of a negative number is negative
 				return ((twodecimalplaces-1)/100.0);
 			}
 			else {

@@ -21,7 +21,7 @@ public class QuadraticClient {
 			//call quadrDescriber to explain features of the graph
 			System.out.print("Would you like to use this program again? Type \"quit\" to exit. ");
 			String answer = console.next();
-			if (answer.contentEquals("quit")) {
+			if (answer.equals("quit")) {
 				done=true;
 			}
 			else {
