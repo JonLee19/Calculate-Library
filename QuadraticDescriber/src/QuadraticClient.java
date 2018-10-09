@@ -27,7 +27,7 @@ public class QuadraticClient {
 			else {
 				done=false;
 			}
-			//check if user wants to repeat program
+			//check if user wants to repeat the program
 		}
 		console.close();
 		System.out.println("Thanks for using this program!");
