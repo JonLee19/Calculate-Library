@@ -10,7 +10,6 @@ public class QuadraticClient {
 		boolean done=false;
 		System.out.println("Welcome to Quadratic Describer, the program that will describe your quadratic equation. Let's start.");
 		Scanner console = new Scanner(System.in);
-		Scanner console2 = new Scanner(System.in);
 		//open scanners
 		while (done==false) {
 			System.out.print("Please give the coefficients of the quadratic equation. ");
@@ -21,7 +20,7 @@ public class QuadraticClient {
 			System.out.println(Quadratic.quadrDescriber(a, b, c));
 			//call quadrDescriber to explain features of the graph
 			System.out.print("Would you like to use this program again? Type \"quit\" to exit. ");
-			String answer = console2.nextLine();
+			String answer = console.next();
 			if (answer.contentEquals("quit")) {
 				done=true;
 			}
@@ -31,7 +30,6 @@ public class QuadraticClient {
 			//check if user wants to repeat program
 		}
 		console.close();
-		console2.close();
 		System.out.println("Thanks for using this program!");
 	}
 

@@ -127,6 +127,9 @@ public class Quadratic {
 		if (b==0) {
 			b=-b;
 		}
+		if (c==0) {
+			c=-c;
+		}
 		//for aesthetic purposes, because 0.0 looks better than -0.0 on vertex coordinates
 		String direction = new String();
 		if (a>0) {
@@ -143,7 +146,7 @@ public class Quadratic {
 		String axis_of_symmetry = ("Its axis of symmetry is x = "+round2(vertex_x)+". ");
 		String x_intercepts = ("Its x-intercept(s) are: "+quadForm(a, b, c)+". ");
 		//quadForm already gives the roots/intercepts of the quadratic equation in string form
-		String y_intercepts = ("Its y-intercept is: (0, "+c+") .");
+		String y_intercepts = ("Its y-intercept is: (0.0, "+c+").");
 		//y-intercept is when x = 0, which gives y = c
 		return (equation+"\n"+direction+"\n"+vertex+"\n"+axis_of_symmetry+"\n"+x_intercepts+y_intercepts);
 		//return all 5 components together as a string
