@@ -115,20 +115,14 @@ public class Calculate {
 	}
 	public static double max(double num1, double num2, double num3) {
 		//returns num1 if num1 is greater than num2 and num3, same for num2 or num3
-		if (num1>num2 && num1>num3) {
+		if (num1>=num2 && num1>=num3) {
 			return num1;
 		}
-		else if (num2>num1 && num2>num3) {
-			return num2;
-		}
-		else if (num3>num1 && num3>num2) {
-			return num3;
-		}
-		else if (num2==num3) {
+		else if (num2>=num3) {
 			return num2;
 		}
 		else {
-			return num1;
+			return num3;
 		}
 	}
 	public static int min(int num1, int num2) {
@@ -237,42 +231,18 @@ public class Calculate {
 	public static int gcf(int num1, int num2) {
 		//finds the largest factor shared by both given values
 		int answer = 1;
-		boolean num1isnegative = false;
-		boolean num2isnegative = false;
-		if (num1 < 0) {
-			num1 = -num1;
-			num1isnegative = true;
-			//if num1isnegative is true, num1 was originally negative
-		}
-		if (num2 < 0){
-			num2 = -num2;
-			num2isnegative = true;
-			//if num2isnegative is true, num2 was originally negative
-		}
-		else {
-		}
-		int largerofinputs = (int) (max(num1, num2));
-		for (int i = largerofinputs; i > 1; i--) {
-			/*starting from the larger input, count down while testing factors
+		for (int i = (int) absValue(num1); i > 1; i--) {
+			/*starting from the 1st input (either works), count down while testing factors
 			 * to see if both num1 and num2 are divisible by them
 			 */
-			if (isDivisibleBy(num1,i)==true) {
-				if (isDivisibleBy(num2,i)==true) {
+			if (isDivisibleBy(num1,i)==true && isDivisibleBy(num2,i)==true) {
 					answer = i;
 					i = 1;
 					/*once a factor is found, assign the value to answer, then
 					 * set the control variable/counter to 1 to end the loop
 					 *  (so that "i" doesn't satisfy the test condition anymore)
 					 */
-				}
-				else {
-				}
 			}
-			else {
-			}
-		}
-		if (num1isnegative == true && num2isnegative == true) {
-			answer = -answer;
 		}
 		return answer;
 	}
@@ -282,15 +252,14 @@ public class Calculate {
 			throw new IllegalArgumentException("That's not a positive number, please give a correct input.");
 			//end program by throwing exception if number is not positive
 		}
-		//for negative numbers, return error statement
-		else {
-		}
+		//for negative numbers, throw exception
 		double answer = 1;
 		double difference = absValue(number-square(answer));
 		//continue until the square of the answer is within 0.05 of the given number
 		while (difference > 0.005) {
 			answer = 0.5*(number/answer + answer);
 			//Newton's method of finding a closer approximation by guess and check
+			//use repeatedly until approximation is within 0.005 of the answer
 			difference = absValue(number-square(answer));
 		}
 		return round2(answer);
@@ -300,10 +269,12 @@ public class Calculate {
 			double answer1 = round2(((-b+sqrt(discriminant(a,b,c)))/(2.0*a)));
 			double answer2 = round2(((-b-sqrt(discriminant(a,b,c)))/(2.0*a)));
 			return (min(answer1, answer2)+" and "+max(answer1, answer2)); 
+			//use derivative equation to give both answers, one is -b+...
+			//the other is -b-...
 		}
 		else if (discriminant(a,b,c) == 0) {
 			return (""+round2(((-b)/(2.0*a))));
-			///how to change to string, is use an empty string to concatenate
+			//change result to a string by concatenating with an empty string
 		}
 		else {
 			return ("no real roots");
@@ -314,10 +285,12 @@ public class Calculate {
 			double answer1 = round2(((-b+sqrt(discriminant(a,b,c)))/(2.0*a)));
 			double answer2 = round2(((-b-sqrt(discriminant(a,b,c)))/(2.0*a)));
 			return (min(answer1, answer2)+" and "+max(answer1, answer2)); 
+			//use derivative equation to give both answers, one is -b+...
+			//the other is -b-...
 		}
 		else if (discriminant(a,b,c) == 0) {
 			return (""+round2(((-b)/(2.0*a))));
-			///how to change to string, is use an empty string to concatenate
+			//change result to a string by concatenating with an empty string
 		}
 		else {
 			return ("no real roots");
