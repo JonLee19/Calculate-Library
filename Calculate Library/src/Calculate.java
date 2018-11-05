@@ -197,15 +197,14 @@ public class Calculate {
 			for (int i = integer-1; i > 0; i--) {
 			//count down from given value to 1
 			integer = integer*i;
-				integer = integer*i;
 			/*for each value, multiply it by the given, 
 			 * and assign that to the given, so at the end
 			 * the given variable equals itself times all the
 			 * integers below it
 			 */
+			}
 		}
 		return integer;
-			}
 	}
 	public static boolean isPrime(int integer) {
 		boolean answer = false;
