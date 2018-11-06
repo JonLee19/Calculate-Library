@@ -207,7 +207,7 @@ public class Calculate {
 		return integer;
 	}
 	public static boolean isPrime(int integer) {
-		boolean answer = false;
+		boolean answer = true;
 		if (integer <= 1) {
 			throw new IllegalArgumentException("That's not a valid input, please give a positive integer greater than 1");
 		}
@@ -220,9 +220,6 @@ public class Calculate {
 				 * answer becomes false and the counter variable i becomes 1
 				 * ending the loop because the test condition is no longer met 
 				 */
-			}
-			else {	
-				answer = true;
 			}
 		}
 		return answer;	
@@ -252,7 +249,7 @@ public class Calculate {
 			//end program by throwing exception if number is not positive
 		}
 		//for negative numbers, throw exception
-		double answer = 1;
+		double answer = 1.0;
 		while (absValue(number-square(answer)) > 0.005) {
 			answer = 0.5*(number/answer + answer);
 			//Newton's method of finding a closer approximation by guess and check
