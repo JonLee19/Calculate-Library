@@ -253,13 +253,10 @@ public class Calculate {
 		}
 		//for negative numbers, throw exception
 		double answer = 1;
-		double difference = absValue(number-square(answer));
-		//continue until the square of the answer is within 0.05 of the given number
-		while (difference > 0.005) {
+		while (absValue(number-square(answer)) > 0.005) {
 			answer = 0.5*(number/answer + answer);
 			//Newton's method of finding a closer approximation by guess and check
 			//use repeatedly until approximation is within 0.005 of the answer
-			difference = absValue(number-square(answer));
 		}
 		return round2(answer);
 	}
