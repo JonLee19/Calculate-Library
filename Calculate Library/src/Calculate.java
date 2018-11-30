@@ -101,6 +101,17 @@ public class Calculate {
 			return number;
 		}
 	}
+	public static int absValue(int number) {
+		//if number is negative, returns the opposite; 
+		//if number is positive, returns number
+		//either result is the positive value of number
+		if (number <= 0) {
+			return -1*number;
+		}
+		else {
+			return number;
+		}
+	}
 	public static double max(double num1, double num2) {
 		//returns num1 if num1 is greater than num2, or num2 if num2 is greater
 		if (num1 > num2) {
